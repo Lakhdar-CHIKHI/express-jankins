@@ -6,6 +6,7 @@ const app = express();
 const port = 3000; // Choose a port number
 
 app.get('/', (req, res) => {
+  console.log('test lakhdar');
   res.send('Hello, World!');
 });
 

@@ -1,0 +1,46 @@
+version: '3'
+services:
+  webserver:
+    image: nginx:alpine
+    depends_on:
+      - api
+    volumes:
+      - ./server-configuration/webserver:/etc/nginx
+    ports:
+      - '${NGINX_HTTP_PORT}:80'
+    restart: unless-stopped
+
+  jenkins:
+    image: jenkins/jenkins:lts-jdk11
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    restart: on-failure
+
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: ./server-configuration/docker/${NODE_ENV}.api.dockerfile
+    env_file:
+      - .env
+    ports:
+      - '${APPS_HTTP_PORT}:3000'
+    volumes:
+      - .:/home/jenkins-express
+      - node_modules:/home/jenkins-express/node_modules
+      - dist:/home/jenkins-express/dist
+
+# Define named volumes
+volumes:
+  jenkins_home:
+  node_modules:
+  dist:
+
+# Define a default network
+networks:
+  default:
+    external:
+      name: ${DOCKER_SHARED_NETWORK}

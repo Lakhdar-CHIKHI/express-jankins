@@ -17,3 +17,6 @@ pids
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# nginx files conf
+server-configuration/webserver/nginx.conf
