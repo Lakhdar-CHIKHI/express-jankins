@@ -17,20 +17,25 @@ This repository contains an Express.js web application integrated with Jenkins f
 
 ## Installation
 1. Clone the repository:
-    - > git clone https://github.com/Lakhdar-CHIKHI/express-jankins.git
+    ```bash
+    git clone https://github.com/Lakhdar-CHIKHI/express-jankins.git
+    ```
 
-    - > cd express-jenkins
-
-2. Build and Run Containers : 
-    > sh setup.sh
-
+    ```bash
+    cd express-jenkins
+    ```
+2. Build and Run Containers :
+    ```bash
+    sh setup.sh
+    ```
     This script will automatically check the environment and environment variables, making the process of setting up the application seamless and straightforward.
 
 ## Usage
 - After successfully setting up the containers, you can access the application in two ways:
 
-    > Access the application locally at: http://localhost/
-
+    ```
+    Access the application locally at: http://localhost/
+    ```
     **Note:** The domain name can be configured by setting the "DOMAIN_NAME" variable in the environment file. Once set, access the application using the specified domain name, for example: **http://DOMAIN_NAME/**
 
 
