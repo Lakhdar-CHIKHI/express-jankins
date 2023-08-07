@@ -17,5 +17,13 @@ pipeline {
             echo 'Hello LAkhdar this is the first jenkins pipeline for the pre-prod branch'
         }
     }
+    stage('Hello for pull request') {
+        when {
+            branch 'PR-*'
+        }
+        steps {
+            echo 'Hello LAkhdar this is the first jenkins pipeline for the pull request'
+        }
+    }
   }
 }
