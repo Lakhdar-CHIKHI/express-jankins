@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Hello') {
       steps {
-        echo 'Hello LAkhdar this is the first jenkins pipeline'
+        echo 'Hello LAkhdar this is the first jenkins pipeline -Master-'
       }
     }
     stage('Hello for Pre-prod branch') {
